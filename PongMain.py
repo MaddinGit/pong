@@ -3,8 +3,8 @@ import pygame
 
 pygame.init()
 
-size = width, height = 800, 800
-speed = [1, 1]
+size = width, height = 1000, 800
+speed = [4, 2]
 black = 0, 0, 0
 
 clock = pygame.time.Clock()
@@ -18,7 +18,7 @@ while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
 
-    clock.tick(300)
+    clock.tick(200)
     ballrect = ballrect.move(speed)
 
     if ballrect.left < 0 or ballrect.right > width:
