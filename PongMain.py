@@ -1,31 +1,38 @@
 import sys
 import pygame
 
-pygame.init()
+SPEED = 100
+WHITE = 255, 255, 255
+BLACK = 0, 0, 0
 
 size = width, height = 1000, 800
-speed = [4, 2]
-black = 0, 0, 0
+
+pygame.init()
 
 clock = pygame.time.Clock()
-
 screen = pygame.display.set_mode(size)
 
-ball = pygame.image.load("images/ball.jpg")
-ballrect = ball.get_rect()
+circle = pygame.Surface((1000, 800), pygame.SRCALPHA)
+position = [0, 0]
+steps = [1, 6]
 
-while 1:
+pygame.draw.circle(circle, WHITE, [10, 10], 10)
+done = False
+while not done:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
+        if event.type == pygame.QUIT:
+            done = True
 
-    clock.tick(200)
-    ballrect = ballrect.move(speed)
+    clock.tick(SPEED)
 
-    if ballrect.left < 0 or ballrect.right > width:
-        speed[0] = -speed[0]
-    if ballrect.top < 0 or ballrect.bottom > height:
-        speed[1] = -speed[1]
+    position[0] += steps[0]
+    position[1] += steps[1]
 
-    screen.fill(black)
-    screen.blit(ball, ballrect)
+    if position[0] > 780 or position[0] < 0:
+        steps[0] = -steps[0]
+    if position[1] > 980 or position[1] < 0:
+        steps[1] = -steps[1]
+
+    screen.fill(BLACK)
+    screen.blit(circle, [position[1], position[0]])
     pygame.display.flip()
