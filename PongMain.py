@@ -1,4 +1,3 @@
-import sys
 import pygame
 
 SPEED = 100
@@ -12,7 +11,7 @@ pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode(size)
 
-circle = pygame.Surface((1000, 800), pygame.SRCALPHA)
+circle = pygame.Surface((20, 20), pygame.SRCALPHA)
 position = [0, 0]
 steps = [1, 6]
 
