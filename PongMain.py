@@ -32,6 +32,6 @@ while not done:
     if position[1] > 980 or position[1] < 0:
         moveDirection[1] = -moveDirection[1]
 
-    screen.fill(BLACK)
+    screen.fill(BACKGROUND_COLOR)
     screen.blit(circle, [position[1], position[0]])
     pygame.display.flip()
