@@ -15,6 +15,10 @@ circle = pygame.Surface((20, 20), pygame.SRCALPHA)
 position = [0, 0]
 moveDirection = [1, 6]
 
+paddle = pygame.Surface((9, 100), pygame.SRCALPHA)
+rect = pygame.Rect(0,0,80,90)
+pygame.draw.rect(paddle, BALL_COLOR, rect, 10)
+
 pygame.draw.circle(circle, BALL_COLOR, [10, 10], 10)
 done = False
 while not done:
@@ -34,4 +38,8 @@ while not done:
 
     screen.fill(BACKGROUND_COLOR)
     screen.blit(circle, [position[1], position[0]])
+    screen.blit(paddle, [30, 30])
     pygame.display.flip()
+
+
+
