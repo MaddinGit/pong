@@ -1,6 +1,6 @@
 import pygame
 
-SPEED = 100
+SPEED = 120
 WHITE = 255, 255, 255
 BLACK = 0, 0, 0
 
@@ -12,8 +12,8 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode(size)
 
 ball = pygame.Surface((20, 20), pygame.SRCALPHA)
-position = [400, 500]
-moveDirection = [1, 6]
+ballPosition = [400, 500]
+ballMoveDirection = [1, 6]
 paddlePlayer1Pos = 250
 paddlePlayer2Pos = 250
 
@@ -44,16 +44,16 @@ while not done:
 
     clock.tick(SPEED)
 
-    position[0] += moveDirection[0]
-    position[1] += moveDirection[1]
+    ballPosition[0] += ballMoveDirection[0]
+    ballPosition[1] += ballMoveDirection[1]
 
-    if position[0] > 780 or position[0] < 0:
-        moveDirection[0] = -moveDirection[0]
-    if position[1] > 980 or position[1] < 0:
-        moveDirection[1] = -moveDirection[1]
+    if ballPosition[0] > 780 or ballPosition[0] < 0:
+        ballMoveDirection[0] = -ballMoveDirection[0]
+    if ballPosition[1] > 980 or ballPosition[1] < 0:
+        ballMoveDirection[1] = -ballMoveDirection[1]
 
     screen.fill(BLACK)
-    screen.blit(ball, [position[1], position[0]])
+    screen.blit(ball, [ballPosition[1], ballPosition[0]])
     screen.blit(paddlePlayer1, [30, paddlePlayer1Pos])
     screen.blit(paddlePlayer2, [950, paddlePlayer2Pos])
     pygame.display.flip()
