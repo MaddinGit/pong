@@ -49,8 +49,11 @@ while not done:
 
     if ballPosition[0] > 780 or ballPosition[0] < 0:
         ballMoveDirection[0] = -ballMoveDirection[0]
-    if ballPosition[1] > 980 or ballPosition[1] < 0:
+    elif ballPosition[1] < 0 and (ballPosition[0] < paddlePlayer1Pos or ballPosition[0] > paddlePlayer1Pos + 300):
         ballMoveDirection[1] = -ballMoveDirection[1]
+    elif ballPosition[1] > 980 or ballPosition[1] < 40 and not (ballPosition[0] < paddlePlayer1Pos or ballPosition[0] > paddlePlayer1Pos + 300):
+        ballMoveDirection[1] = -ballMoveDirection[1]
+
 
     screen.fill(BLACK)
     screen.blit(ball, [ballPosition[1], ballPosition[0]])
