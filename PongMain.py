@@ -47,7 +47,7 @@ while not done:
     ballPosition[0] += ballMoveDirection[0]
     ballPosition[1] += ballMoveDirection[1]
 
-    # Wenn der Ball oben, unten, links rechts oder an die Pedalle stößt, invertiere die Laufrichtung
+    # Wenn der Ball oben, unten, links rechts oder an die Pedalle von Spieler 1 und 2 stößt, invertiere die Laufrichtung
     if ballPosition[0] > 780 or ballPosition[0] < 0:
         ballMoveDirection[0] = -ballMoveDirection[0]
     elif (ballPosition[1] > 980 and (ballPosition[0] < paddlePlayer2Pos or ballPosition[0] > paddlePlayer2Pos + 300)) \
